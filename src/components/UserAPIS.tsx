@@ -1,4 +1,4 @@
-export{}
+export{};
 import axios from "axios";
 import React from "react";
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
@@ -36,7 +36,7 @@ React.useEffect(() => {
         Name: Name,
         Country: Country,
         AnnualIncome: AnnualIncome,
-        EmailIdsList : ["email"]
+        EmailIdsList : EmailIdsList,
       
       });
       alert("Employee Added Successfully");
@@ -61,7 +61,7 @@ React.useEffect(() => {
   }
   async function Delete(Id :string) {
     await axios.delete("https://localhost:7012/api/Employee" + Id);
-     alert("Employee Data deleted Successfully");
+     alert("Employee Data edited Successfully");
      setId("");
      setName("");
      setCountry("");
@@ -77,11 +77,11 @@ React.useEffect(() => {
      
      
             {
-            Id: " ",
+            Id: Id,
             Name: Name,
             Country: Country,
             AnnualIncome: AnnualIncome,
-            EmailIdsList:["email"]
+            EmailIdsList:EmailIdsList
     
      
             }
@@ -199,7 +199,7 @@ React.useEffect(() => {
                   <td>{employee.Name}</td>
                   <td>{employee.Country}</td>
                   <td>{employee.AnnualIncome}</td>
-                  <td>{employee.EmailIdsList}</td>
+                  <td>{employee.EmailIdsList.join(" | ")}</td>
                   
                   
                   <td>
